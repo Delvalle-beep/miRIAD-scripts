@@ -1,31 +1,38 @@
-#miRIAD Data Processing Scripts
+# miRIAD Data Processing Scripts
 
 This repository contains scripts used to analyze and organize data from the miRIAD (miRNA Expression and Disease Association) database. The scripts automate key steps in data processing, ensuring consistency and facilitating integration with other datasets.
 
-Features
+## Features
 
-✔️ Converts .txt files (comma-separated) into .tsv (tab-separated).✔️ Merges .tsv files with metadata from SampleSheet.✔️ Removes unnecessary columns from the final dataset.✔️ Concatenates multiple .txt and .tsv files into a single dados_totais.tsv file.
+✔️ **Converts .txt files (comma-separated) into .tsv (tab-separated).**  
+✔️ **Merges .tsv files with metadata from SampleSheet.**  
+✔️ **Removes unnecessary columns from the final dataset.**  
+✔️ **Concatenates multiple .txt and .tsv files into a single total_data.tsv file.**  
+✔️ **Calculates summary statistics for expression values (mean, median, min, max, std) of miRNA data** and appends these statistics to the processed files.  
+✔️ **Removes duplicate entries based on miRNA_ID** while keeping only the first occurrence, ensuring clean and accurate data.
 
-Workflow
+## Workflow
 
-1️⃣ Preprocesses raw .txt and .tsv files.2️⃣ Integrates metadata from SampleSheet.3️⃣ Cleans and formats the dataset by removing redundant columns.4️⃣ Combines all processed data into a final structured file.
+1️⃣ **Preprocesses raw .txt and .tsv files**: Converts, merges, and structures data into a uniform format.  
+2️⃣ **Integrates metadata from SampleSheet**: Combines the raw data with relevant metadata to create a comprehensive dataset.  
+3️⃣ **Cleans and formats the dataset**: Removes unnecessary columns and duplicates, ensuring that the dataset is ready for analysis.  
+4️⃣ **Calculates statistical metrics**: For miRNA expression levels, such as mean, median, minimum, maximum, and standard deviation.  
+5️⃣ **Combines all processed data**: Merges the cleaned data, along with calculated statistics, into a final structured file for downstream analysis.
 
-Requirements
+## Requirements
 
-Python 3.x
+- Python 3.x  
+- Pandas
 
-Pandas
+## Usage
 
-Usage
 
 Run the scripts in sequence to process the data efficiently:
 
-python convert_txt_to_tsv.py
-python merge_with_metadata.py
-python clean_data.py
-python concatenate_files.py
-
-Notes
-
-⚠️ Ensure that .txt files use tab separators to avoid errors.⚠️ File names in SampleSheet must match exactly with the corresponding .tsv files.
+```bash
+python source_step0.py  
+python source_step1.py  
+python source_step2.py  
+python source_step3.py  
+python source_step(n...).py
 
